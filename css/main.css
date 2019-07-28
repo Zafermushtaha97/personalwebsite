@@ -1,0 +1,355 @@
+.menu-tab {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  z-index: 3;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.menu-tab .btn-line {
+  width: 25px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: #fff;
+  transition: all 0.5s ease-out;
+}
+.menu-tab.close {
+  transform: rotate(180deg);
+}
+.menu-tab.close .btn-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-tab.close .btn-line:nth-child(2) {
+  display: none;
+}
+.menu-tab.close .btn-line:nth-child(3) {
+  transform: rotate(-45deg) translate(1px, 1px);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+}
+.menu.show {
+  visibility: visible;
+}
+.menu-branding, .menu-nav {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+.menu-nav {
+  margin: 0;
+  padding: 0;
+  background: black;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.5s ease-out;
+}
+.menu-nav.show {
+  transform: translate3d(0, 0, 0);
+}
+.menu-branding {
+  margin: 0;
+  padding: 0;
+  background: #06010a;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.5s ease-out;
+}
+.menu-branding.show {
+  transform: translate3d(0, 0, 0);
+}
+.menu-branding .portrait {
+  width: 250px;
+  height: 250px;
+  background-image: url(../img/per7.jpg);
+  border-radius: 50%;
+  border: 3px solid #1e3799;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.menu .nav-item {
+  transform: translate3d(600px, 0, 0);
+  transition: all 0.5s ease-out;
+}
+.menu .nav-item.show {
+  transform: translate3d(0, 0, 0);
+}
+.menu .nav-item.current > a {
+  color: #1e3799;
+}
+.menu .nav-link {
+  display: inline-block;
+  position: relative;
+  font-size: 28px;
+  padding: 1rem 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  transition: all 0.5s ease-out;
+}
+.menu .nav-link:hover {
+  color: #1e3799;
+}
+
+.nav-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.nav-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.nav-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.nav-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+@media screen and (min-width: 993px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  main {
+    align-items: center;
+    text-align: center;
+  }
+
+  ul.menu-nav,
+div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
+  }
+  ul.menu-nav.show,
+div.menu-branding.show {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 22px;
+  }
+
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+  }
+  .menu-branding .portrait {
+    width: 150px;
+    height: 150px;
+    background-image: url(../img/per7.jpg);
+    border-radius: 50%;
+    border: 3px solid #1e3799;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .about-info {
+    grid-template-areas: "bio-img" "bio" "job1" "job2" "job3" !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .projects {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .boxes div:first-child {
+    padding: 0rem 1rem;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #09010f;
+  color: #fff;
+  margin: 0;
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+body#bg-img {
+  background-image: url(../img/blog.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body#bg-img:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  background: rgba(9, 1, 15, 0.3);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+}
+h1.lg-heading, h2.lg-heading, h3.lg-heading {
+  font-size: 4rem;
+}
+h1.sm-heading, h2.sm-heading, h3.sm-heading {
+  margin-bottom: 2rem;
+  padding: 0.2rem 1rem;
+  background-color: rgba(13, 1, 22, 0.5);
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: #1e3799;
+}
+
+main {
+  padding: 4rem;
+  height: calc(100vh-60px);
+}
+main .icons a {
+  padding: 0.3rem;
+}
+main .icons a:hover {
+  color: #1e3799;
+  transition: all 0.5s ease-out;
+}
+main#home h1 {
+  margin-top: 20vh;
+}
+
+.about-info {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-areas: "bio-img bio bio" "job1 job2 job3";
+  grid-template-columns: repeat(3, 1fr);
+}
+.about-info .bio-img {
+  grid-area: bio-img;
+  border-radius: 50%;
+  border: 3px solid #1e3799;
+  width: 80%;
+  margin: auto;
+}
+.about-info .bio {
+  grid-area: bio;
+  font-size: 1.4rem;
+}
+.about-info .job1 {
+  grid-area: job1;
+}
+.about-info .job2 {
+  grid-area: job2;
+}
+.about-info .job3 {
+  grid-area: job3;
+}
+.about-info .job {
+  background-color: #0c0114;
+  padding: 1em;
+  border-bottom: 4px solid #1e3799;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.projects img {
+  width: 100%;
+  border: 3px white solid;
+}
+.projects img:hover {
+  opacity: 0.7;
+  border-color: #1e3799;
+  transition: all 0.5s ease-out;
+}
+
+.btn, .btn-light, .btn-dark {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+.btn:hover, .btn-light:hover, .btn-dark:hover {
+  background-color: #1e3799;
+  color: #fff;
+}
+
+.btn-dark {
+  background: black;
+}
+
+.btn-light {
+  background: #26043f;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.boxes div {
+  font-size: 2rem;
+  border: 3px solid #fff;
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 3rem;
+  transition: all 0.5s ease-out;
+}
+.boxes div:hover {
+  padding: 0.5rem 1.5rem;
+  background: #1e3799;
+  color: #fff;
+}
+.boxes div:hover span {
+  color: #fff;
+}
+
+#footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #06010a;
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,128 @@
+
+.menu-tab{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 3;
+    cursor: pointer;
+    @include easeout();
+    .btn-line{
+        width: 25px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background:$main-color;
+        @include easeout();
+    }
+
+    &.close{
+        transform: rotate(180deg);
+
+        .btn-line{
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px,5px);
+            }
+            &:nth-child(2){
+                display: none;
+            }
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(1px,1px);
+                }
+          
+        }
+    }
+
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+  
+    &.show {
+      visibility: visible;
+    }
+  
+    &-branding,
+    &-nav {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+    }
+  
+    &-nav {
+      margin: 0;
+      padding: 0;
+      background: darken($primary-color, 5);
+      transform: translate3d(0, 100%, 0);
+      @include easeout();
+  
+      &.show {
+        // Slide in from top
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+
+    &-branding{
+        margin: 0;
+      padding: 0;
+      background: darken($primary-color, 1);
+      transform: translate3d(0, -100%, 0);
+      @include easeout();
+
+      &.show {
+        // Slide in from top
+        transform: translate3d(0, 0, 0);
+      }
+      .portrait{
+          width: 250px;
+          height: 250px;
+          background-image: url(../img/per7.jpg);
+          border-radius:50%; 
+          border: 3px solid $secondary-color;
+          background-repeat: no-repeat;
+          background-size: cover;
+         
+
+      }
+    }
+    .nav-item{
+        transform: translate3d(600px,0,0);
+        @include easeout();
+
+        &.show {
+            // Slide in from right
+            transform: translate3d(0, 0, 0);
+          }
+          &.current > a{
+              color: $secondary-color;
+          }
+    }
+    .nav-link{
+        display: inline-block;
+        position: relative;
+        font-size: 28px;
+        padding: 1rem 0;
+        font-weight: 400;
+        text-transform: uppercase;
+        @include easeout();
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+
+
+@for $x from 1 through 4{
+    .nav-item:nth-child(#{$x}){
+        transition-delay: $x * 0.1s; 
+
+    }
+}

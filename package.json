@@ -1,0 +1,15 @@
+{
+  "name": "modern_portfolio",
+  "version": "1.0.0",
+  "description": "responsive portfolio website",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": " sass --watch scss/main.scss dist/css/main.css"
+  },
+  "author": "zafer mushtaha",
+  "license": "ISC"
+}
